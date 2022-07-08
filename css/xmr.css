@@ -1,0 +1,112 @@
+* {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 16px;
+    line-height: 26px;
+    color: color: #606060;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    font-size:24px;
+}
+
+
+.content {
+    margin-top:45px;
+    padding:15px;
+}
+
+
+
+
+/* Workers */
+.workers {
+    width:100%;
+    height: auto;
+    min-height: 580px;
+    margin:0 auto;
+    text-align:center;
+    padding:5px;
+}
+
+.worker{
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    color: #000;
+    border: 1px solid rgba(237,237,237,0.2);
+    width: 300px;
+    height: 160px;
+    float: left;
+    margin: 8px;
+    padding: 8px;
+    text-align:left;
+}
+
+.worker > h2 {
+    background: #145bca;
+    color: #fff;
+    width: 100%;
+    display: block;
+    line-height: 16px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.offline {color:#E10303;}
+.online {color:#05A205;}
+
+/* News (Top bar) */
+#news {
+    top: 0;
+    width: 100%;
+    color:#000;
+    background: #145bca;
+    border-bottom: 5px solid #0bae97;
+    position: fixed;
+    z-index: 999999;
+    width: 100%;
+    -webkit-box-shadow: 0 0 8px 0 #000;
+    -moz-box-shadow: 0 0 8px 0 #000;
+    box-shadow: 0 0 8px 0 #000;
+    font-size:24px;
+}
+
+#news > marquee {
+    color:#FFF;
+    font-size:24px;
+}
+
+#news > marquee > b {
+    color:#FFF;
+    font-size:24px;
+}
+
+#footer {
+  float:left;
+  clear:both;
+  text-align: center;
+  border-top: 5px solid #0bae97;
+  padding: 5px;
+  background: #145bca;
+  width:100%;
+  color:#FFF;
+}
+
+@media only screen and (max-width: 768px) {
+    .worker {
+        width:100%;
+        margin: 0px 0px 10px 0px;
+        padding:0;
+        box-sizing: border-box;
+    }
+}
