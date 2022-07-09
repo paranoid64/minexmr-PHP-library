@@ -207,8 +207,37 @@ class monero
         return $paid;
     }
 
+    /* your xmr */
     public function xmr(){
         return ($this->balance() / $this->thold()) / 10;
+    }
+
+    /*
+    * Your xmr in current rate of the currency
+    * @param $unit (eur, rub, gbp, usd or btc)
+    * @return ( 0,010351 XMR * 124,92 EUR = 1,29 EUR)
+    */
+
+    public function xmr_current_rate($unit){
+         switch($unit) {
+          case ("eur"):
+            $ret = $this->xmr() * $this->currency_exchange_rate("eur");
+            break;
+          case ("rub"):
+            $ret = $this->xmr() * $this->currency_exchange_rate("rub");
+            break;
+          case ("gbp"):
+            $ret = $this->xmr() * $this->currency_exchange_rate("gbp");
+            break;
+          case ("usd"):
+            $ret = $this->xmr() * $this->currency_exchange_rate("usd");
+            break;
+          case ("btc"):
+            $ret = $this->xmr() * $this->currency_exchange_rate("btc");
+            break;
+        }
+
+        return $this->format_currency($ret,2);
     }
 
 
