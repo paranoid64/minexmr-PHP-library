@@ -116,6 +116,15 @@ for more details see https://minexmr.com/apidoc
     example:
     $monero->xmr()
 
+    Total Rewards XMR: 0,010325
 
+
+#### Your Total Rewards in current rate of the currency
+
+    @param $unit (eur, rub, gbp, usd or btc)
+
+    example:
+    $monero->xmr_current_rate("eur")
+    Return 1,29 EUR ( 0,010351 XMR * 124,92 EUR = 1,29 EUR)
 
 ## more information will follow, the manual is still under construction.

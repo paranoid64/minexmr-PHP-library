@@ -57,22 +57,16 @@ echo '<div id="news">
 ';
 
 
-$EUR = $monero->xmr() * $monero->currency_exchange_rate("eur");
-$RUB = $monero->xmr() * $monero->currency_exchange_rate("rub");
-$GBP = $monero->xmr() * $monero->currency_exchange_rate("gbp");
-$USD = $monero->xmr() * $monero->currency_exchange_rate("usd");
-$BTC = $monero->xmr() * $monero->currency_exchange_rate("btc");
-
     echo '  <div class="content">
         <h1>Miner balance stats</h1>
 
         <b>Total Rewards: </b>'.$monero->format_currency($monero->xmr(),6).'<br>
         <b>Paid: </b>'.$monero->paid().' XMR<br><br>
-        <b>In EUR: </b>'.$monero->format_currency($EUR,2).' EUR<br>
-        <b>In RUB: </b>'.$monero->format_currency($RUB,2).' RUB<br>
-        <b>In GBP: </b>'.$monero->format_currency($GBP,2).' GBP<br>
-        <b>In USD: </b>'.$monero->format_currency($USD,2).' USD<br>
-        <b>In BTC: </b>'.$monero->format_currency($BTC,2).' BTC<br>
+        <b>In EUR: </b>'.$monero->xmr_current_rate("eur").' EUR<br>
+        <b>In RUB: </b>'.$monero->xmr_current_rate("rub").' RUB<br>
+        <b>In GBP: </b>'.$monero->xmr_current_rate("gbp").' GBP<br>
+        <b>In USD: </b>'.$monero->xmr_current_rate("usd").' USD<br>
+        <b>In BTC: </b>'.$monero->xmr_current_rate("btc").' BTC<br>
 
         <h1>Information about the '.$monero->count_worker().' workers </h1>
 ';
