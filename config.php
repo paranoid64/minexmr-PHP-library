@@ -1,7 +1,7 @@
 <?php
 
 #YOUR WALLET ADDRESS
-$user ="41exxxxxx";
+$user ="41exxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 /* Output format
 * de = 123,00 EUR , 07.12.2022 - 12:30
@@ -10,7 +10,6 @@ $user ="41exxxxxx";
 */
 
 $format = "de";
-
 
 $refresh = "120"; // page refresh time in seconds
 

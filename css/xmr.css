@@ -16,51 +16,50 @@ h1 {
     font-size:24px;
 }
 
-
 .content {
     margin-top:45px;
     padding:15px;
 }
 
-
-
-
-/* Workers */
-.workers {
+/* Workers / Miner balance stats */
+.boxes {
     width:100%;
     height: auto;
-    min-height: 580px;
+    min-height: 180px;
     margin:0 auto;
     text-align:center;
     padding:5px;
 }
 
-.worker{
+.box{
     border-radius: 3px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     color: #000;
     border: 1px solid rgba(237,237,237,0.2);
     width: 300px;
-    height: 160px;
+    height: 200px;
     float: left;
     margin: 8px;
     padding: 8px;
     text-align:left;
 }
 
-.worker > h2 {
+.box > h2 {
     background: #145bca;
     color: #fff;
     width: 100%;
     display: block;
-    line-height: 16px;
-    font-size: 14px;
+    line-height: 20px;
+    font-size: 18px;
+    font-weight:bold;
     text-align: center;
     text-transform: uppercase;
     padding: 5px;
     box-sizing: border-box;
     margin-top: 5px;
 }
+
+.clear {clear:both;float:left;height:55px;width:100%;}
 
 .offline {color:#E10303;}
 .online {color:#05A205;}
@@ -92,14 +91,18 @@ h1 {
 }
 
 #footer {
-  float:left;
-  clear:both;
-  text-align: center;
-  border-top: 5px solid #0bae97;
-  padding: 5px;
-  background: #145bca;
-  width:100%;
-  color:#FFF;
+    border-top: 5px solid #0bae97;
+    padding: 5px;
+    background: #145bca;
+    color:#FFF;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 42px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -108,5 +111,8 @@ h1 {
         margin: 0px 0px 10px 0px;
         padding:0;
         box-sizing: border-box;
+    }
+    .box {
+        width:95%;
     }
 }

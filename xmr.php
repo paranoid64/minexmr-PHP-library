@@ -59,20 +59,47 @@ echo '<div id="news">
     echo '  <div class="content">
         <h1>Miner balance stats</h1>
 
-        <b>Total Rewards: </b>'.$monero->format_currency($monero->xmr(),6).'<br>
-        <b>Paid: </b>'.$monero->paid().' XMR<br><br>
-        <b>In EUR: </b>'.$monero->xmr_current_rate("eur").' EUR<br>
-        <b>In RUB: </b>'.$monero->xmr_current_rate("rub").' RUB<br>
-        <b>In GBP: </b>'.$monero->xmr_current_rate("gbp").' GBP<br>
-        <b>In USD: </b>'.$monero->xmr_current_rate("usd").' USD<br>
-        <b>In BTC: </b>'.$monero->xmr_current_rate("btc").' BTC<br>
 
-        <h1>Information about the '.$monero->count_worker().' workers </h1>
+        <div class="boxes">
+
+            <div class="box">
+                <h2>Rewards:'.$monero->format_currency($monero->xmr(),6).' XMR</h2>
+                <b>In EUR: </b>'.$monero->xmr_rate($monero->xmr(),"eur").' EUR<br>
+                <b>In RUB: </b>'.$monero->xmr_rate($monero->xmr(),"rub").' RUB<br>
+                <b>In GBP: </b>'.$monero->xmr_rate($monero->xmr(),"gbp").' GBP<br>
+                <b>In USD: </b>'.$monero->xmr_rate($monero->xmr(),"usd").' USD<br>
+                <b>In BTC: </b>'.$monero->xmr_rate($monero->xmr(),"btc").' BTC<br>
+            </div>
+
+            <div class="box">
+                <h2>Paid: '.$monero->format_currency($monero->paid(),6).' XMR</h2>
+                <b>In EUR: </b>'.$monero->xmr_rate($monero->paid(),"eur").' EUR<br>
+                <b>In RUB: </b>'.$monero->xmr_rate($monero->paid(),"rub").' RUB<br>
+                <b>In GBP: </b>'.$monero->xmr_rate($monero->paid(),"gbp").' GBP<br>
+                <b>In USD: </b>'.$monero->xmr_rate($monero->paid(),"usd").' USD<br>
+                <b>In BTC: </b>'.$monero->xmr_rate($monero->paid(),"btc").' BTC<br>
+            </div>
+
+            <div class="box">
+                <h2>Total: '.$monero->format_currency($monero->total_rewards(),6).' XMR</h2>
+                <b>In EUR: </b>'.$monero->xmr_rate($monero->total_rewards(),"eur").' EUR<br>
+                <b>In RUB: </b>'.$monero->xmr_rate($monero->total_rewards(),"rub").' RUB<br>
+                <b>In GBP: </b>'.$monero->xmr_rate($monero->total_rewards(),"gbp").' GBP<br>
+                <b>In USD: </b>'.$monero->xmr_rate($monero->total_rewards(),"usd").' USD<br>
+                <b>In BTC: </b>'.$monero->xmr_rate($monero->total_rewards(),"btc").' BTC<br>
+            </div>
+
+        </div>
+
+        <div class="clear">
+            <h1>Information about the '.$monero->count_worker().' workers</h1>
+        </div>
 ';
+
     echo $monero->get_worker();
 
     echo '</div>
-
+    <div class="clear"></div>
     <div id="footer">
             this class is open source and may not be offered for sale. <a href="https://www.lama-creation.de" target="blank">LaMa-Creation</a>
         </div>';

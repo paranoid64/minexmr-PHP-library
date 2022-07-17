@@ -60,7 +60,7 @@ class monero
 
 
     /**
-    * returns urrency exchange rate
+    * returns currency exchange rate
     *
     * @param unit (eur, rub, gbp, usd, btc)
     * @return e.g. eur  113,50
@@ -174,7 +174,6 @@ class monero
                 }
             }
         }
-
     }
 
 
@@ -198,48 +197,49 @@ class monero
     */
     public function paid(){
         $paid = ($this->data_stats->paid / $this->thold()) / 10;
-        $paid = number_format(
-                                $paid,
-						        6,
-						        ",",// Dezimaltrennzeichen
-						        "." // 1000er-Trennzeichen
-					        );
         return $paid;
     }
 
-    /* your xmr */
+    /*
+    *   your Pending Rewards XMR, that has not yet been paid out. 
+    */
     public function xmr(){
         return ($this->balance() / $this->thold()) / 10;
     }
 
     /*
-    * Your xmr in current rate of the currency
-    * @param $unit (eur, rub, gbp, usd or btc)
-    * @return ( 0,010351 XMR * 124,92 EUR = 1,29 EUR)
+    *   your XMR, that has not yet been paid out and the paid out together
     */
+    public function total_rewards(){
+        return ($this->xmr() + $this->paid());
+    }
 
-    public function xmr_current_rate($unit){
+    /*
+    * xmr value in rate of the currency
+    * @param $xmr, $unit (eur, rub, gbp, usd or btc)
+    * @return float ( 0,010351 XMR * 124,92 EUR = 1,29 EUR)
+    */
+    public function xmr_rate($xmr, $unit){
          switch($unit) {
           case ("eur"):
-            $ret = $this->xmr() * $this->currency_exchange_rate("eur");
+            $ret = $xmr * $this->currency_exchange_rate("eur");
             break;
           case ("rub"):
-            $ret = $this->xmr() * $this->currency_exchange_rate("rub");
+            $ret = $xmr * $this->currency_exchange_rate("rub");
             break;
           case ("gbp"):
-            $ret = $this->xmr() * $this->currency_exchange_rate("gbp");
+            $ret = $xmr * $this->currency_exchange_rate("gbp");
             break;
           case ("usd"):
-            $ret = $this->xmr() * $this->currency_exchange_rate("usd");
+            $ret = $xmr * $this->currency_exchange_rate("usd");
             break;
           case ("btc"):
-            $ret = $this->xmr() * $this->currency_exchange_rate("btc");
+            $ret = $xmr * $this->currency_exchange_rate("btc");
             break;
         }
 
         return $this->format_currency($ret,2);
     }
-
 
     /*
         return: number of workers
@@ -263,11 +263,11 @@ class monero
     */
     public function get_worker(){
         $worker_id = 1;
-        $ret = '<div class="workers">';
+        $ret = '<div class="boxes">';
 
         foreach($this->data_worker as $worker){
 
-            $ret .= '<div class="worker">';
+            $ret .= '<div class="box">';
 
 	        if (isset($worker->name)){
 		        $ret .= "<h2>" . $worker->name . "</h2>";
@@ -302,7 +302,6 @@ class monero
         }
 
         $ret .= '</div>';
-
         return $ret;
     }
 
@@ -322,8 +321,6 @@ class monero
             return date("Y/m/d - H:i", $val);
             break;
         }
-
-
     }
 
     public function format_currency($val, $dec){
@@ -357,6 +354,7 @@ class monero
             break;
         }
     }
+
 
 }
 
